@@ -12,7 +12,8 @@ SS_PORT=8388
 
 
 echo "root can install soft"
-yum install -y python-setuptools && easy_install pip
+sudo yum -y install epel-release && python-pip
+#yum install -y python-setuptools && easy_install pip
 
 pip install shadowsocks
 
