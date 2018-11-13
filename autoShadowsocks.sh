@@ -21,7 +21,7 @@ pip install shadowsocks
 
 cat << EOF | tee ${CONFIG_FILE}
 {
-	"server":"0.0.0.0",
+    "server":"0.0.0.0",
     "server_port":${SS_PORT},
     "local_address": "127.0.0.1",
     "local_port":1080,
