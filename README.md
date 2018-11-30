@@ -14,10 +14,5 @@ chmod +x autoShadowsocks.sh
 ./autoShadowsocks.sh 
 
 
-如果执行脚本报错消息为：/bin/bash^M: bad interpreter 打开脚本设置文件格式为unix  
-vi ./autoShadowsocks.sh  
-:set ff=unix 
-
-
 查看shadowsocks服务状态 
 systemctl status ssserver -l
