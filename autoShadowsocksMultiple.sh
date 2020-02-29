@@ -10,19 +10,6 @@ SS_PASSWORD=qwer1234
 SS_PORT=8388
 #SS_IP=`ip route get 1|awk '{print $NF;exit}'`
 
-SS_PORT_PASSWORD={
-     "8388":"qwer1234",
-     "8389":"qwer1234",
-     "8390":"qwer1234",
-     "8391":"qwer1234",
-     "8392":"qwer1234",
-     "8393":"qwer1234",
-     "8394":"qwer1234",
-     "8395":"qwer1234",
-     "8396":"qwer1234",
-     "8397":"qwer1234"
-}
-
 
 echo "root can install soft"
 #yum install -y python-setuptools && easy_install pip
@@ -37,7 +24,18 @@ cat << EOF | tee ${CONFIG_FILE}
     "server":"0.0.0.0",
     "local_address": "127.0.0.1",
     "local_port":1080,
-    "port_password":"${SS_PORT_PASSWORD}",
+    "port_password":{
+          "8388":"qwer1234",
+          "8389":"qwer1234",
+          "8390":"qwer1234",
+          "8391":"qwer1234",
+          "8392":"qwer1234",
+          "8393":"qwer1234",
+          "8394":"qwer1234",
+          "8395":"qwer1234",
+          "8396":"qwer1234",
+          "8397":"qwer1234"
+     },
     "timeout":600,
     "method":"aes-256-cfb",
     "fast_open": false
