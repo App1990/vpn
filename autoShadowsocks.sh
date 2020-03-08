@@ -27,7 +27,7 @@ cat << EOF | tee ${CONFIG_FILE}
     "local_port":1080,
     "password":"${SS_PASSWORD}",
     "timeout":600,
-    "method":"aes-256-cfb",
+    "method":"aes-256-gcm",
     "fast_open": false
 }
 EOF
