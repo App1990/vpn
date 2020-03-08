@@ -37,7 +37,7 @@ cat << EOF | tee ${CONFIG_FILE}
           "8397":"qwer1234"
      },
     "timeout":600,
-    "method":"aes-256-cfb",
+    "method":"aes-256-gcm",
     "fast_open": false
 }
 EOF
