@@ -10,6 +10,10 @@ yum -y install wget
 ``` Linux Commands
 wget --no-check-certificate -O autoShadowsocks.sh https://raw.githubusercontent.com/App1990/CentOS7-autoShadowsocks/master/autoShadowsocks.sh 
 ```
+获取脚本文件（Multiple）  
+``` Linux Commands
+wget --no-check-certificate -O autoShadowsocks.sh https://raw.githubusercontent.com/App1990/CentOS7-autoShadowsocks/master/autoShadowsocksMultiple.sh 
+```
 
 将文件标记为可执行脚本  
 ``` Linux Commands
