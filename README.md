@@ -1,9 +1,9 @@
 shell脚本，自动搭建shadowsocks
 
 # CentOS 7使用方法：
-安装wget组件  
+安装wget组件和解压缩工具  
 ``` Linux Commands
-yum -y install wget 
+yum -y install wget && yum install -y zip unzip 
 ```
 
 获取脚本文件  
