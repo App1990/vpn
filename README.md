@@ -8,7 +8,7 @@ yum -y install wget && yum install -y zip unzip
 
 获取脚本文件 
 ``` Linux Commands
-wget --no-check-certificate -O vpn.sh https://raw.githubusercontent.com/App1990/CentOS7-autoShadowsocks/master/v2ray.sh 
+wget --no-check-certificate -O vpn.sh https://raw.githubusercontent.com/App1990/vpn/master/v2ray.sh 
 ```
 
 将文件标记为可执行脚本 
