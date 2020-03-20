@@ -1,32 +1,32 @@
-shell脚本，自动搭建shadowsocks
+shell脚本，自动搭建v2ray
 
 # CentOS 7使用方法：
-安装wget组件和解压缩工具  
+安装wget组件和解压缩工具 
 ``` Linux Commands
 yum -y install wget && yum install -y zip unzip 
 ```
 
-获取脚本文件  
+获取脚本文件 
 ``` Linux Commands
-wget --no-check-certificate -O autoShadowsocks.sh https://raw.githubusercontent.com/App1990/CentOS7-autoShadowsocks/master/autoShadowsocks.sh 
-```
-获取脚本文件（Multiple）  
-``` Linux Commands
-wget --no-check-certificate -O autoShadowsocks.sh https://raw.githubusercontent.com/App1990/CentOS7-autoShadowsocks/master/autoShadowsocksMultiple.sh 
+wget --no-check-certificate -O vpn.sh https://raw.githubusercontent.com/App1990/CentOS7-autoShadowsocks/master/v2ray.sh 
 ```
 
-将文件标记为可执行脚本  
+将文件标记为可执行脚本 
 ``` Linux Commands
-chmod +x autoShadowsocks.sh 
+chmod +x vpn.sh 
 ```
 
-执行脚本  
+执行脚本 
 ``` Linux Commands
-./autoShadowsocks.sh 
+./vpn.sh 
 ```
 
-
-查看shadowsocks服务状态 
+启动v2ray服务 
 ``` Linux Commands
-systemctl status ssserver -l
+systemctl start v2ray
+```
+
+查看v2ray服务状态 
+``` Linux Commands
+systemctl status v2ray -l
 ```
