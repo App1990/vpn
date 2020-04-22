@@ -414,7 +414,7 @@ checkUpdate(){
 }
 
 installJQ(){
-    if [[ -n `command -v $COMPONENT` ]]; then
+    if [[ -n `command -v jq` ]]; then
         return 0
     else
         wget --no-check-certificate -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
