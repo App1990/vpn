@@ -148,17 +148,14 @@ zipRoot() {
         NR != 1 {
             prefix_len = length(prefix);
             cur_len = length($4);
-
             for (len = prefix_len < cur_len ? prefix_len : cur_len; len >= 1; len -= 1) {
                 sub_prefix = substr(prefix, 1, len);
                 sub_cur = substr($4, 1, len);
-
                 if (sub_prefix == sub_cur) {
                     prefix = sub_prefix;
                     break;
                 }
             }
-
             if (len == 0) {
                 prefix = "";
                 nextfile;
@@ -256,8 +253,11 @@ getVersion(){
         RETVAL=$?
         CUR_VER="$(normalizeVersion "$(echo "$VER" | head -n 1 | cut -d " " -f2)")"
         TAG_URL="https://api.github.com/repos/v2ray/v2ray-core/releases/latest"
-        NEW_VER="$(normalizeVersion "$(curl ${PROXY} -s "${TAG_URL}" --connect-timeout 10| grep 'tag_name' | cut -d\" -f4)")"
-	NEW_VER="v4.23.1"
+        NEW_VER="$(normalizeVersion "$(curl ${PROXY} -s "${TAG_URL}" --connect-timeout 10 | jq .tag_name | cut -d\" -f2)")"
+        #NEW_VER="$(normalizeVersion "$(curl ${PROXY} -s "${TAG_URL}" --connect-timeout 10| grep 'tag_name' | cut -d\" -f4)")"
+        #colorEcho ${RED} ${PROXY}
+        #colorEcho ${RED} "$(curl ${PROXY} -s "${TAG_URL}" --connect-timeout 10| grep 'tag_name' | cut -d\" -f4)"
+        #NEW_VER="v4.23.1"
         if [[ $? -ne 0 ]] || [[ $NEW_VER == "" ]]; then
             colorEcho ${RED} "Failed to fetch release information. Please check your network or try again."
             return 3
@@ -413,6 +413,17 @@ checkUpdate(){
     return 0
 }
 
+installJQ(){
+    if [[ -n `command -v $COMPONENT` ]]; then
+        return 0
+    else
+        wget --no-check-certificate -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+        chmod +x ./jq
+        cp jq /usr/bin
+        return 0
+    fi
+}
+
 main(){
     #helping information
     [[ "$HELP" == "1" ]] && Help && return
@@ -442,6 +453,7 @@ main(){
     else
         # download via network and extract
         installSoftware "curl" || return $?
+        installJQ
         getVersion
         RETVAL="$?"
         if [[ $RETVAL == 0 ]] && [[ "$FORCE" != "1" ]]; then
