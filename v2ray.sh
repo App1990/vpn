@@ -417,7 +417,9 @@ installJQ(){
     if [[ -n `command -v jq` ]]; then
         return 0
     else
-        wget --no-check-certificate -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+        colorEcho ${BLUE} "install jq-1.6"
+        #wget --no-check-certificate -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+	curl -L -H "Cache-Control: no-cache" -o jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
         chmod +x ./jq
         cp jq /usr/bin
         return 0
