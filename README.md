@@ -4,6 +4,8 @@ shell脚本，自动搭建v2ray
 一键安装 
 ``` Linux Commands
 bash <(curl -s https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) 
+
+bash <(curl -sL https://raw.githubusercontent.com/hijkpw/scripts/master/goV2.sh)
 ```
 
 启动v2ray服务 
