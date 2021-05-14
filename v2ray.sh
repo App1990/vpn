@@ -171,9 +171,9 @@ downloadV2Ray(){
     rm -rf /tmp/v2ray
     mkdir -p /tmp/v2ray
     if [[ "${DIST_SRC}" == "jsdelivr" ]]; then
-        DOWNLOAD_LINK="https://cdn.jsdelivr.net/gh/v2ray/dist/v2ray-linux-${VDIS}.zip"
+        DOWNLOAD_LINK="https://cdn.jsdelivr.net/gh/v2fly/dist/v2ray-linux-${VDIS}.zip"
     else
-        DOWNLOAD_LINK="https://github.com/v2ray/v2ray-core/releases/download/${NEW_VER}/v2ray-linux-${VDIS}.zip"
+        DOWNLOAD_LINK="https://github.com/v2fly/v2ray-core/releases/download/${NEW_VER}/v2ray-linux-${VDIS}.zip"
     fi
     #colorEcho ${RED} "Last Version: ${NEW_VER}"
     colorEcho ${BLUE} "Downloading V2Ray: ${DOWNLOAD_LINK}"
@@ -252,7 +252,7 @@ getVersion(){
         VER="$(/usr/bin/v2ray/v2ray -version 2>/dev/null)"
         RETVAL=$?
         CUR_VER="$(normalizeVersion "$(echo "$VER" | head -n 1 | cut -d " " -f2)")"
-        TAG_URL="https://api.github.com/repos/v2ray/v2ray-core/releases/latest"
+        TAG_URL="https://api.github.com/repos/v2fly/v2ray-core/releases/latest"
         NEW_VER="$(normalizeVersion "$(curl ${PROXY} -s "${TAG_URL}" --connect-timeout 10 | jq .tag_name | cut -d\" -f2)")"
         #NEW_VER="$(normalizeVersion "$(curl ${PROXY} -s "${TAG_URL}" --connect-timeout 10| grep 'tag_name' | cut -d\" -f4)")"
         #colorEcho ${RED} ${PROXY}
